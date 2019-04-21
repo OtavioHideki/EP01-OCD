@@ -21,18 +21,9 @@ public class Multiplicacao extends Operacoes {
 			S[i] = '0';	// S é o negativo do multiplicando(subtração).
 			P[i] = '0';	// P é o produto.
 		}
-		/*
-		if(binario1[0] == '1') A[0] = '1';
-		else S[0] = '1';
 
-		if(binario2[0] == '1') P[0] = '1';
-		*/
-
-		//int auxA = 0;
 		for(int i = 0; i < binario1.length; i++){
 			A[i] = binario1[i];
-			//S[i] = binario1[auxA];
-			//auxA++;
 		}
 
 		char[] aux = sub.complementoDeDois(binario1); //Guarda o complemento de dois do binario1 no char auxiliar e depois passa para S.
