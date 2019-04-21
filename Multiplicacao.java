@@ -21,9 +21,18 @@ public class Multiplicacao extends Operacoes {
 			S[i] = '0';	// S é o negativo do multiplicando(subtração).
 			P[i] = '0';	// P é o produto.
 		}
+		/*
+		if(binario1[0] == '1') A[0] = '1';
+		else S[0] = '1';
 
+		if(binario2[0] == '1') P[0] = '1';
+		*/
+
+		//int auxA = 0;
 		for(int i = 0; i < binario1.length; i++){
-			A[i] = binario1[i];	//passa o binario 1 para A.
+			A[i] = binario1[i];
+			//S[i] = binario1[auxA];
+			//auxA++;
 		}
 
 		char[] aux = sub.complementoDeDois(binario1); //Guarda o complemento de dois do binario1 no char auxiliar e depois passa para S.
@@ -64,7 +73,14 @@ public class Multiplicacao extends Operacoes {
 			rightShift(P,tamanho);
 			display(P, 'P');
 		}
-		return P;
+
+		/*Função para printar a resposta sem o último bit que serve apenas para auxílio do algoritmo de Booth*/
+		char[] resposta = new char[tamanho-1];
+		for (int i = 0; i < tamanho-1; i++){
+			resposta[i] = P[i];
+		}
+
+		return resposta;
 	}
 	
 	/*Função para deslocar o os bits para a direita.*/
