@@ -60,8 +60,8 @@ public class Operacoes {
 		System.out.println("Digite qual bit será o bit de sinal");
 		max=entrada.nextInt();
 		System.out.println("Escreva os dois numeros binarios que quer "+ numero.verbo + ", com o bit de sinal:");
-		System.out.println("[0]: numero negativo");
-		System.out.println("[1]: numero positivo");
+		System.out.println("[1]: numero negativo");
+		System.out.println("[0]: numero positivo");
 		String primeiro=entrada.next();
 		String segundo=entrada.next();
 		char[] binario1=primeiro.toCharArray();
