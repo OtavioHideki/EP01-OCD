@@ -35,15 +35,15 @@ public class Operacoes {
 	}
 	
 	public static void imprimeResultado(char[] res) {
-		System.out.print("Seu resultado(com bit de sinal) foi: ");
-		System.out.print(res);
+		System.out.print("\nSeu resultado(com bit de sinal) foi: ");
+		System.out.println(res);
 	}
 	
 	public static Operacoes verificaOperacao(String operacao) {
 		Operacoes numero;
-		if(operacao.equals("A")) numero=new Adicao();
-		else if(operacao.equals("S")) numero=new Subtracao();
-		else if(operacao.equals("M")) numero=new Multiplicacao();
+		if(operacao.equalsIgnoreCase("A")) numero=new Adicao();
+		else if(operacao.equalsIgnoreCase("S")) numero=new Subtracao();
+		else if(operacao.equalsIgnoreCase ("M")) numero=new Multiplicacao();
 		else numero=new Divisao();
 		return numero;
 	}
