@@ -3,10 +3,11 @@ import java.util.Scanner;
 
 public class Operacoes {
 	
-	public static int max;
-	private static Scanner entrada;
-	public static char[] resultado;
-	public String verbo;
+	static int max;
+	String verbo;
+	static boolean divisao=false;
+	static boolean negativo=false;
+	static int parada;
 	
 	static char[] combinar(char[]c1,char[]c2) {
 		char[] combinado=new char[c1.length+c2.length];
@@ -34,39 +35,47 @@ public class Operacoes {
 		return binario1;
 	}
 	
-	public static void imprimeResultado(char[] res) {
-		System.out.print("\nSeu resultado(com bit de sinal) foi: ");
-		System.out.println(res);
+	private static void imprimeResultado(char[] res) {
+		System.out.print("Seu resultado(com bit de sinal) foi: ");
+		if(divisao&&res[0]!='0'){
+		    for(int i=parada;i<res.length;i++){
+		        System.out.print(res[i]);
+            }
+        }
+        else System.out.print(res);
+        System.out.println();
+        System.out.print("Resto: ");
+        System.out.print(Divisao.resto);
 	}
 	
-	public static Operacoes verificaOperacao(String operacao) {
-		Operacoes numero;
-		if(operacao.equalsIgnoreCase("A")) numero=new Adicao();
-		else if(operacao.equalsIgnoreCase("S")) numero=new Subtracao();
-		else if(operacao.equalsIgnoreCase ("M")) numero=new Multiplicacao();
-		else numero=new Divisao();
-		return numero;
-	}
+	private static Operacoes verificaOperacao(String operacao) {
+        Operacoes numero;
+        if(operacao.equalsIgnoreCase("A")) numero=new Adicao();
+        else if(operacao.equalsIgnoreCase("S")) numero=new Subtracao();
+        else if(operacao.equalsIgnoreCase ("M")) numero=new Multiplicacao();
+        else numero=new Divisao();
+        return numero;
+    }
 	
 	public static void main(String[] args) {
-		entrada = new Scanner(System.in);
+		Scanner entrada = new Scanner(System.in);
+		System.out.println("Digite qual bit será o bit de sinal");
+		max= entrada.nextInt();
 		System.out.print("Escreva qual operacao quer realizar:\n"+
 				"[A]: adicao\n"+
 				"[S]: subtracao\n" +
 				"[M]: multiplicacao\n" +
 				"[D]: divisao\n");
-		String operacao=entrada.nextLine();
+		String operacao= entrada.next();
 		Operacoes numero=verificaOperacao(operacao);
-		System.out.println("Digite qual bit será o bit de sinal");
-		max=entrada.nextInt();
 		System.out.println("Escreva os dois numeros binarios que quer "+ numero.verbo + ", com o bit de sinal:");
 		System.out.println("[1]: numero negativo");
 		System.out.println("[0]: numero positivo");
-		String primeiro=entrada.next();
-		String segundo=entrada.next();
+		String primeiro= entrada.next();
+		String segundo= entrada.next();
 		char[] binario1=primeiro.toCharArray();
 		char[] binario2=segundo.toCharArray();
-		resultado=numero.conta(binario1,binario2);
+		char[] resultado = numero.conta(binario1, binario2);
 		imprimeResultado(resultado);
 
 	}

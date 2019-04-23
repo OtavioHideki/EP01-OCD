@@ -1,22 +1,22 @@
 
 public class Subtracao extends Operacoes {
 	
-	public Subtracao() {
+	Subtracao() {
 		this.verbo="subtrair";
 	}
 	
-	public char[] complementoDeDois(char[] subtraido) {
+	 static char[] complementoDeDois(char[] subtracao) {
 		boolean troca=false;
-		for(int i=subtraido.length-1;i>=0;i--) {
-			if(troca==false) {
-				if(subtraido[i]=='1') troca=true;
+        for(int i = subtracao.length-1; i>=0; i--) {
+			if(!troca) {
+				if(subtracao[i]=='1') troca=true;
 			} else{
-				if(subtraido[i]=='1') subtraido[i]='0';
-				else subtraido[i]='1';
+				if(subtracao[i]=='1') subtracao[i]='0';
+				else subtracao[i]='1';
 			}
 			
 		}
-		return subtraido;
+		return subtracao;
 	}
 	char[] conta(char[] binario1,char[] binario2){
 		Adicao add=new Adicao();
