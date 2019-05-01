@@ -1,8 +1,7 @@
 import java.util.Scanner;
 public class Floats extends Operacoes {
-	static int tamanhoMantissa=23;
 	static int tamanhoExpoente=8;
-	public static boolean floatAdicao;
+	public static boolean operacaoFloat;
 	public static boolean fim=false;
 	static String bitSinal1;
 	static String bitSinal2;
@@ -108,9 +107,8 @@ public class Floats extends Operacoes {
 			System.out.println("Underflow de Expoente");
 			System.exit(0);
 		}
-		System.out.println(expoente1);
-		System.out.println(expoente2);
-		String s=numero.conta(binario1,expoente1,binario2,expoente2);
+		String resultado=numero.conta(binario1,expoente1,binario2,expoente2);
+		imprimeResultado(resultado);
 
 	}
 }

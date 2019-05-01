@@ -15,9 +15,9 @@ public class IntMultiplicacao extends Inteiros {
         char[] P = new char[tamanho];
 
         for(int i = 0; i <tamanho; i++){
-            A[i] = '0';	// A é o multiplicando (adição).
-            S[i] = '0';	// S é o negativo do multiplicando(subtração).
-            P[i] = '0';	// P é o produto.
+            A[i] = '0';	// A eh o multiplicando (adicao).
+            S[i] = '0';	// S eh o negativo do multiplicando(subtracao).
+            P[i] = '0';	// P eh o produto.
         }
 
         for(int i = 0; i < binario1.length; i++){
@@ -39,13 +39,13 @@ public class IntMultiplicacao extends Inteiros {
         display(P, 'P');
         System.out.println();
 
-        /*Função para verificar se os dois últimos bits de P são 00, 11, 01, 10 e assim determinar
+        /*Funcao para verificar se os dois ultimos bits de P sao 00, 11, 01, 10 e assim determinar
          * o que o algoritmo faz. */
         int compara = binario1.length; //variavel que sera usada de "parametro" para o for
         if(binario2.length<binario1.length) compara=binario2.length;
         for(int i = 0; i < compara; i++){
             //if(P[tamanho -2] == '0' && P[tamanho-1] == '0'){
-            //Não faz nada
+            //Nao faz nada
             //}
             if(P[tamanho-2] == '1' && P[tamanho-1] == '0'){
                 max=tamanho;
@@ -56,7 +56,7 @@ public class IntMultiplicacao extends Inteiros {
                 P = add.conta(P,A);
             }
             //if(P[tamanho -2] == '1' && P[tamanho -1] == '1'){
-            //Não faz nada
+            //Nao faz nada
             //}
 
             rightShift(P,tamanho);
@@ -64,7 +64,7 @@ public class IntMultiplicacao extends Inteiros {
             System.out.println();
         }
 
-        /*Função para printar a resposta sem o último bit que serve apenas para auxílio do algoritmo de Booth*/
+        /*Funcao para printar a resposta sem o ultimo bit que serve apenas para auxilio do algoritmo de Booth*/
         char[] resposta = new char[tamanho-1];
         for (int i = 0; i < tamanho-1; i++){
             resposta[i] = P[i];
@@ -73,14 +73,14 @@ public class IntMultiplicacao extends Inteiros {
         return resposta;
     }
 
-    /*Função para deslocar o os bits para a direita.*/
+    /*Funcao para deslocar os bits para a direita.*/
     public void rightShift(char[] A, int tamanho){
         for (int i = tamanho-1; i >= 1; i--){
             A[i] = A[i-1];
         }
     }
 
-    /*Função para mostrar os passos do algoritmo na interface.*/
+    /*Funcao para mostrar os passos do algoritmo na interface.*/
     private void display(char[] P, char ch){
         System.out.print("\n"+ch+" : ");
         for(int i = 0; i < P.length; i++){

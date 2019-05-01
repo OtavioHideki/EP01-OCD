@@ -3,7 +3,7 @@ public class FloatAdicao extends Floats {
 	static int contador=0;
 	
 	public FloatAdicao() {
-		Floats.floatAdicao=true;
+		operacaoFloat=true;
 	}
 	
     public static String rightShift(String binario){
@@ -53,8 +53,6 @@ public class FloatAdicao extends Floats {
 		char[] auxBinario2;
 		expoente1=FloatAdicao.igualarExpoente(expoente1,expoente2);//iguala os dois expoentes
 		expoente2=FloatAdicao.igualarExpoente(expoente1,expoente2);//iguala os dois expoentes
-		System.out.println("Expoente1: "+expoente1);
-		System.out.println("Expoente2: "+expoente2);
 		char[] zeros=new char[contador+1];// cria um array de zeros para a normalizacao ser possivel
 		for(i=0;i<zeros.length;i++) {
 			zeros[i]='0';
@@ -76,8 +74,6 @@ public class FloatAdicao extends Floats {
 		/*retira os zeros ate o primeiro 1 ou ate a virgula*/
 		while(binario1.charAt(0)!='1'&& binario1.charAt(1)!=','&&tamanhoB1<binario1.length())binario1=binario1.substring(1);
 		while(binario2.charAt(0)!='1'&&binario2.charAt(1)!=','&&tamanhoB2<binario2.length()) binario2=binario2.substring(1);
-		System.out.println("Binario1: "+binario1);
-		System.out.println("Binario2: "+binario2);
 		
 		/*cria dois arrays de string que contem as partes antes e depois da virgula*/
 		String[] partesBinario1=new String[2];
@@ -104,8 +100,7 @@ public class FloatAdicao extends Floats {
 		while(resultado.charAt(i)=='0') {
 			i++;
 			if(i==resultado.length()) {
-				System.out.println("0");
-				String s="0";
+				String s="00";
 				return s;
 			}
 		}
@@ -137,9 +132,6 @@ public class FloatAdicao extends Floats {
 				vezes++;
 			}
 		}
-		System.out.println("Normalizado: "+resultado);
-		System.out.print("Expoente: ");
-		System.out.print(aux);
 		String[] partesResultado=new String[2];
 		partesResultado=resultado.split(",");//"retira" o 1, que nao aparece na mantissa
 		String expoenteFinal=new String(aux);
@@ -151,10 +143,8 @@ public class FloatAdicao extends Floats {
 		while(partesResultado[1].length()!=23) {
 			partesResultado[1]=partesResultado[1].substring(0,partesResultado[1].length()-1);
 		}
-		System.out.println("Mantissa: "+partesResultado[1]);
 		String resultadoFinal=bitSinalFinal.concat(expoenteFinal);
 		resultadoFinal=resultadoFinal.concat(partesResultado[1]);
-		System.out.println("Resultado: "+resultadoFinal);
 		return resultadoFinal;
 	}
 
