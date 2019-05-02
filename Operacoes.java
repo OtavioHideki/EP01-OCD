@@ -1,3 +1,8 @@
+/*Nomes: Pedro Augusto Santos Giorgi						n°USP:10828972
+ * 		 Otavio Hideki										n°USP:
+ */
+
+
 import java.util.Scanner;
 
 
