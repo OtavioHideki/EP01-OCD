@@ -67,7 +67,7 @@ public class Floats extends Operacoes {
 			expo=new String(auxExpoente);
 		}
 		expoente1=sExpo.concat(expo);
-		if(expoente1.length()>tamanhoExpoente) {
+		if(expoente1.length()>tamanhoExpoente&&sExpo.equals("0")) {
 			System.out.println("Overflow de Expoente");
 			System.exit(0);
 		}
@@ -98,7 +98,7 @@ public class Floats extends Operacoes {
 			expo=new String(auxExpoente);
 		}
 		expoente2=sExpo.concat(expo);
-		if(expoente2.length()>tamanhoExpoente) {
+		if(expoente2.length()>tamanhoExpoente&&sExpo.equals("0")) {
 			System.out.println("Overflow de Expoente");
 			System.exit(0);
 		}

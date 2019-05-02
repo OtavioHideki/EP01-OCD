@@ -53,8 +53,12 @@ public class IntDivisao extends Inteiros {
         }
         binarioContador[i]=Character.forDigit(contador,10);
         parada=i-1; //atualiza a variavel parada da classe Operacoes
-        if(bitSinal1!=bitSinal2) binarioContador=IntSubtracao.complementoDeDois(binarioContador); //se os dois binarios tem sinais opostos, aplica complemento de dois sobre o resultado
-        else binarioContador[0]='0';
+        if(bitSinal1!=bitSinal2) {
+        	binarioContador=IntSubtracao.complementoDeDois(binarioContador); //se os dois binarios tem sinais opostos, aplica complemento de dois sobre o resultado
+        	String aux=new String(binarioContador);
+        	aux="1"+aux;
+        	binarioContador=aux.toCharArray();
+        }else binarioContador[0]='0';
         return binarioContador;
 
     }

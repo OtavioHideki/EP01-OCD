@@ -8,7 +8,10 @@ public class IntMultiplicacao extends Inteiros {
     public char[] conta(char[] binario1, char[] binario2){
         IntAdicao add = new IntAdicao();
         int tamanho = binario1.length+binario2.length+1;  //inteiro para passar o tamanho dos chars A,S,P.
-
+        char bitSinal1=binario1[0];
+        char bitSinal2=binario2[0];
+        if(bitSinal1=='1') binario1=IntSubtracao.complementoDeDois(binario1);
+        if(bitSinal2=='1') binario2=IntSubtracao.complementoDeDois(binario2);
         char[] A = new char[tamanho];
         char[] S = new char[tamanho];
         char[] P = new char[tamanho];
@@ -67,6 +70,7 @@ public class IntMultiplicacao extends Inteiros {
         for (int i = 0; i < tamanho-1; i++){
             resposta[i] = P[i];
         }
+        if(bitSinal1!=bitSinal2) resposta=IntSubtracao.complementoDeDois(resposta);
 
         return resposta;
     }
