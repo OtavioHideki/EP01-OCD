@@ -61,7 +61,7 @@ public class IntAdicao extends Inteiros{
 		}
 		/*verifica overflow*/
 		if(binario1[0]==binario2[0]&&resultado[0]!=binario1[0]) {
-			if(Floats.fim) {
+			if(Floats.fim||IntMultiplicacao.mult) {
 				if(carryIn=='1') {
 					String auxResultado=new String(resultado);
 					auxResultado="1"+auxResultado;

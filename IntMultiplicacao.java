@@ -1,13 +1,12 @@
 
 public class IntMultiplicacao extends Inteiros {
-
+	static boolean mult=false;
     IntMultiplicacao (){
         this.verbo = "multiplicar";
     }
 
     public char[] conta(char[] binario1, char[] binario2){
         IntAdicao add = new IntAdicao();
-
         int tamanho = binario1.length+binario2.length+1;  //inteiro para passar o tamanho dos chars A,S,P.
 
         char[] A = new char[tamanho];
@@ -41,8 +40,7 @@ public class IntMultiplicacao extends Inteiros {
 
         /*Funcao para verificar se os dois ultimos bits de P sao 00, 11, 01, 10 e assim determinar
          * o que o algoritmo faz. */
-        int compara = binario1.length; //variavel que sera usada de "parametro" para o for
-        if(binario2.length<binario1.length) compara=binario2.length;
+        int compara=binario2.length;
         for(int i = 0; i < compara; i++){
             //if(P[tamanho -2] == '0' && P[tamanho-1] == '0'){
             //Nao faz nada
